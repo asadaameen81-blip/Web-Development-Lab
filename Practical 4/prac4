@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 4 - Responsive Product Showcase | Tailwind CSS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
 
+  <!-- Header / Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between px-6 py-4 max-w-6xl mx-auto">
+      <h1 class="text-2xl font-bold text-indigo-600 mb-2 sm:mb-0">TrendyStore</h1>
+      <nav class="flex flex-wrap justify-center gap-4 text-gray-700 font-medium">
+        <a href="#" class="hover:text-indigo-600">Home</a>
+        <a href="#" class="hover:text-indigo-600">Collections</a>
+        <a href="#" class="hover:text-indigo-600">New Arrivals</a>
+        <a href="#" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="bg-indigo-600 text-white text-center py-12 px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-3">New Collection 2026</h2>
+    <p class="text-indigo-100 max-w-xl mx-auto">
+      Discover our latest arrivals — designed to look great on every screen, from your phone to your desktop.
+    </p>
+  </section>
+
+  <!-- Product Showcase Section -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center sm:text-left">
+      Featured Products
+    </h3>
+
+    <!-- Flex container: column on mobile, row-wrap on tablet/desktop -->
+    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-6 justify-center">
+
+      <!-- Product Card 1 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\shopping.jpg" alt="Sneakers" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Classic Sneakers</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">Comfortable everyday sneakers with breathable mesh design.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$59.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\UrbanBackpack.jpg.jpg" alt="Backpack" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Urban Backpack</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">Spacious and durable backpack, perfect for daily commutes.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$39.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\Watch.jpg.jpg" alt="Watch" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Smart Watch</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">Track your fitness and stay connected on the go.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$89.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\Sunglasses.jpg.jpg" alt="Sunglasses" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Classic Sunglasses</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">UV-protected stylish sunglasses for sunny days.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$24.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\Headphone.jpg.png" alt="Headphones" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Wireless Headphones</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">Noise-cancelling headphones with 20hr battery life.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$99.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 6 -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden w-full sm:w-[45%] lg:w-[30%] flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <img src="img\DenimJacket.jpg.jpg" alt="Jacket" class="w-full h-48 object-cover">
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-lg font-semibold text-gray-800">Denim Jacket</h4>
+          <p class="text-gray-500 text-sm flex-grow mt-1">Trendy denim jacket suitable for all seasons.</p>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-indigo-600 font-bold text-lg">$74.99</span>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-6 mt-10">
+    <p>&copy; 2026 TrendyStore. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
