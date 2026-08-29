@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDM Practical 6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-1">Practical no. 6</h1>
+        <h3 class="text-lg text-center text-gray-600 mb-4">Marks Calculator</h3>
+
+        <table class="w-full border-collapse mb-4">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border px-2 py-1">#</th>
+                    <th class="border px-2 py-1">Subject</th>
+                    <th class="border px-2 py-1">Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-2 py-1 text-center">1</td>
+                    <td class="border px-2 py-1">DMGT</td>
+                    <td class="border px-2 py-1">
+                        <input type="number" id="s1" placeholder="Enter Marks" min="0" max="100" class="border rounded px-2 py-1 w-full">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border px-2 py-1 text-center">2</td>
+                    <td class="border px-2 py-1">CAO</td>
+                    <td class="border px-2 py-1">
+                        <input type="number" id="s2" placeholder="Enter Marks" min="0" max="100" class="border rounded px-2 py-1 w-full">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border px-2 py-1 text-center">3</td>
+                    <td class="border px-2 py-1">PHP</td>
+                    <td class="border px-2 py-1">
+                        <input type="number" id="s3" placeholder="Enter Marks" min="0" max="100" class="border rounded px-2 py-1 w-full">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border px-2 py-1 text-center">4</td>
+                    <td class="border px-2 py-1">ES</td>
+                    <td class="border px-2 py-1">
+                        <input type="number" id="s4" placeholder="Enter Marks" min="0" max="100" class="border rounded px-2 py-1 w-full">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border px-2 py-1 text-center">5</td>
+                    <td class="border px-2 py-1">ED</td>
+                    <td class="border px-2 py-1">
+                        <input type="number" id="s5" placeholder="Enter Marks" min="0" max="100" class="border rounded px-2 py-1 w-full">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center mb-4">
+            <button onclick="calc()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                CALCULATE
+            </button>
+        </div>
+
+        <p id="error" class="text-red-600 text-center mb-2"></p>
+
+        <div class="grid grid-cols-3 gap-2 text-center">
+            <div>
+                <h2 class="font-semibold">Total marks</h2>
+                <p id="total" class="text-xl"></p>
+            </div>
+            <div>
+                <h2 class="font-semibold">Percent</h2>
+                <p id="percent" class="text-xl"></p>
+            </div>
+            <div>
+                <h2 class="font-semibold">Grade</h2>
+                <p id="grade" class="text-xl"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calc() {
+            const ids = ["s1", "s2", "s3", "s4", "s5"];
+            const values = ids.map(id => document.getElementById(id).value);
+            const errorEl = document.getElementById("error");
+
+            // Validate all fields are filled with numbers between 0 and 100
+            if (values.some(v => v === "" || isNaN(v) || Number(v) < 0 || Number(v) > 100)) {
+                errorEl.textContent = "Please enter valid marks (0-100) in all fields.";
+                document.getElementById("total").innerHTML = "";
+                document.getElementById("percent").innerHTML = "";
+                document.getElementById("grade").innerHTML = "";
+                return;
+            }
+            errorEl.textContent = "";
+
+            const total = values.reduce((sum, v) => sum + Number(v), 0);
+            const per = (total / 500) * 100;
+
+            let grade;
+            if (per >= 75) {
+                grade = "A";
+            } else if (per >= 65) {
+                grade = "B";
+            } else if (per >= 50) {
+                grade = "C";
+            } else if (per >= 35) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            document.getElementById("total").innerHTML = total;
+            document.getElementById("percent").innerHTML = per.toFixed(2) + "%";
+            document.getElementById("grade").innerHTML = grade;
+        }
+    </script>
+</body>
+
+</html>
