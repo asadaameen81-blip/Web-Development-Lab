@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Help Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
+            opacity: 0;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 220px;
+            padding-top: 0.75rem;
+            padding-bottom: 1rem;
+            opacity: 1;
+        }
+        .faq-item.open .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans bg-[#0f172a] text-slate-800">
+
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+        <div class="absolute -top-24 -left-16 h-72 w-72 rounded-full bg-indigo-500/40 blur-3xl"></div>
+        <div class="absolute top-1/3 -right-10 h-80 w-80 rounded-full bg-fuchsia-500/30 blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl"></div>
+    </div>
+
+    <main class="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
+        <section class="w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-white/90 shadow-2xl shadow-indigo-900/40 backdrop-blur-xl">
+
+            <header class="bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-500 px-8 py-8 text-white">
+                <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
+                    Campus Support
+                </p>
+                <h1 class="text-3xl font-extrabold tracking-tight">Student Help Portal</h1>
+                <p class="mt-2 text-sm text-indigo-100">Quick answers for timings, leave, and campus services.</p>
+            </header>
+
+            <div class="px-6 py-6 sm:px-8">
+                <label class="mb-5 flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
+                    </svg>
+                    <input id="search" type="search" placeholder="Search a question..."
+                        class="w-full bg-transparent text-sm outline-none placeholder:text-slate-400">
+                </label>
+
+                <div id="faq-list" class="space-y-3">
+
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <button class="question flex w-full items-center justify-between gap-4 p-4 text-left">
+                            <span class="flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">🕘</span>
+                                <span class="font-semibold text-slate-800">What are the college timings?</span>
+                            </span>
+                            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <p class="faq-answer px-4 text-sm leading-relaxed text-slate-600">
+                            College timings are from <strong>9:00 AM to 5:00 PM</strong>, Monday to Friday.
+                        </p>
+                    </article>
+
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <button class="question flex w-full items-center justify-between gap-4 p-4 text-left">
+                            <span class="flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-600">📝</span>
+                                <span class="font-semibold text-slate-800">What are the events conducted in collages?</span>
+                            </span>
+                            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <p class="faq-answer px-4 text-sm leading-relaxed text-slate-600">
+                            Technical as well as cultural events, with<strong> Technoutsav </strong> including the mind games and sports
+                        </p>
+                    </article>
+
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <button class="question flex w-full items-center justify-between gap-4 p-4 text-left">
+                            <span class="flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-fuchsia-50 text-fuchsia-600">📅</span>
+                                <span class="font-semibold text-slate-800">Where can I check my timetable?</span>
+                            </span>
+                            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <p class="faq-answer px-4 text-sm leading-relaxed text-slate-600">
+                            Open the student portal and go to <strong>Academics → Timetable</strong> to view your latest schedule.
+                        </p>
+                    </article>
+
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <button class="question flex w-full items-center justify-between gap-4 p-4 text-left">
+                            <span class="flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600">🪪</span>
+                                <span class="font-semibold text-slate-800">How do I get a new ID card?</span>
+                            </span>
+                            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <p class="faq-answer px-4 text-sm leading-relaxed text-slate-600">
+                            Visit the admin office with a passport photo and a copy of your admission receipt to request a replacement ID.
+                        </p>
+                    </article>
+
+                </div>
+
+                <p id="no-results" class="mt-4 hidden text-center text-sm text-slate-500">No matching questions found.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const items = document.querySelectorAll(".faq-item");
+        const search = document.getElementById("search");
+        const noResults = document.getElementById("no-results");
+
+        items.forEach((item) => {
+            const button = item.querySelector(".question");
+            button.addEventListener("click", () => {
+                const isOpen = item.classList.contains("open");
+                items.forEach((other) => other.classList.remove("open"));
+                if (!isOpen) item.classList.add("open");
+            });
+        });
+
+        search.addEventListener("input", () => {
+            const query = search.value.toLowerCase().trim();
+            let visible = 0;
+
+            items.forEach((item) => {
+                const text = item.innerText.toLowerCase();
+                const match = text.includes(query);
+                item.style.display = match ? "" : "none";
+                if (match) visible += 1;
+            });
+
+            noResults.classList.toggle("hidden", visible !== 0);
+        });
+    </script>
+</body>
+</html>
